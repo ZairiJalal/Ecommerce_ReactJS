@@ -6,7 +6,7 @@ import { Link, useLocation } from 'react-router-dom';
 import logo from '../../assets/commerce.png';
 import useStyles from './styles';
 
-const PrimarySearchAppBar = ({ totalItems }) => {
+  const PrimarySearchAppBar = ({ totalItems }) => {
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = useState(null);
   const classes = useStyles();
   const location = useLocation();
@@ -32,6 +32,8 @@ const PrimarySearchAppBar = ({ totalItems }) => {
 
   return (
     <>
+
+
       <AppBar position="fixed" className={classes.appBar} color="inherit">
         <Toolbar>
           <Typography component={Link} to="/" variant="h6" className={classes.title} color="inherit">

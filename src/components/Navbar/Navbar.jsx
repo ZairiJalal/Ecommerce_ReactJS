@@ -4,11 +4,27 @@ import { ShoppingCart } from '@material-ui/icons';
 import { Link, useLocation } from 'react-router-dom';
 
 import logo from '../../assets/commerce.png';
-import useStyles from './styles';
 
   const PrimarySearchAppBar = ({ totalItems }) => {
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = useState(null);
-  const classes = useStyles();
+  const classes = {
+    appBar: {
+      boxShadow: 'none',
+      borderBottom: '1px solid rgba(0, 0, 0, 0.12)',
+    },
+    title: {
+      flexGrow: 1,
+      alignItems: 'center',
+      display: 'flex',
+      textDecoration: 'none',
+    },
+    image: {
+      marginRight: '10px',
+    },
+    grow: {
+      flexGrow: 1,
+    }
+  };
   const location = useLocation();
 
   const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
@@ -34,14 +50,14 @@ import useStyles from './styles';
     <>
 
 
-      <AppBar position="fixed" className={classes.appBar} color="inherit">
+      <AppBar position="fixed" style={classes.appBar} color="inherit">
         <Toolbar>
-          <Typography component={Link} to="/" variant="h6" className={classes.title} color="inherit">
-            <img src={logo} alt="commerce.js" height="25px" className={classes.image} /> Commerce.js
+          <Typography component={Link} to="/" variant="h6" style={classes.title} color="inherit">
+            <img src={logo} alt="commerce.js" height="25px" style={classes.image} /> Commerce.js
           </Typography>
-          <div className={classes.grow} />
+          <div style={classes.grow} />
           {location.pathname === '/' && (
-          <div className={classes.button}>
+          <div style={classes.button}>
             <IconButton component={Link} to="/cart" aria-label="Show cart items" color="inherit">
               <Badge badgeContent={totalItems} color="secondary">
                 <ShoppingCart />

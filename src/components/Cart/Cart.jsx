@@ -3,16 +3,34 @@ import { Container, Typography, Button, Grid } from '@material-ui/core';
 import { Link } from 'react-router-dom';
 
 import CartItem from './CartItem/CartItem';
-import useStyles from './styles';
 
 const Cart = ({ cart, onUpdateCartQty, onRemoveFromCart, onEmptyCart }) => {
-  const classes = useStyles();
+  const classes = {
+    title: {
+      marginTop: '5%',
+    },
+    emptyButton: {
+      minWidth: '150px',
+    },
+    checkoutButton: {
+      minWidth: '150px',
+    },
+    link: {
+      textDecoration: 'none',
+    },
+    cardDetails: {
+      display: 'flex',
+      marginTop: '10%',
+      width: '100%',
+      justifyContent: 'space-between',
+    }
+  };
 
   const handleEmptyCart = () => onEmptyCart();
 
   const renderEmptyCart = () => (
     <Typography variant="subtitle1">You have no items in your shopping cart,
-      <Link className={classes.link} to="/">start adding some</Link>!
+      <Link style={classes.link} to="/">start adding some</Link>!
     </Typography>
   );
 
@@ -27,11 +45,11 @@ const Cart = ({ cart, onUpdateCartQty, onRemoveFromCart, onEmptyCart }) => {
           </Grid>
         ))}
       </Grid>
-      <div className={classes.cardDetails}>
+      <div style={classes.cardDetails}>
         <Typography variant="h4">Subtotal: {cart.subtotal.formatted_with_symbol}</Typography>
         <div>
-          <Button className={classes.emptyButton} size="large" type="button" variant="contained" color="secondary" onClick={handleEmptyCart}>Empty cart</Button>
-          <Button className={classes.checkoutButton} component={Link} to="/checkout" size="large" type="button" variant="contained" color="primary">Checkout</Button>
+          <Button style={classes.emptyButton} size="large" type="button" variant="contained" color="secondary" onClick={handleEmptyCart}>Empty cart</Button>
+          <Button style={classes.checkoutButton} component={Link} to="/checkout" size="large" type="button" variant="contained" color="primary">Checkout</Button>
         </div>
       </div>
     </>
@@ -39,8 +57,7 @@ const Cart = ({ cart, onUpdateCartQty, onRemoveFromCart, onEmptyCart }) => {
 
   return (
     <Container>
-      <div className={classes.toolbar} />
-      <Typography className={classes.title} variant="h3" gutterBottom>Your Shopping Cart</Typography>
+      <Typography style={classes.title} variant="h3" gutterBottom>Your Shopping Cart</Typography>
       { !cart.line_items.length ? renderEmptyCart() : renderCart() }
     </Container>
   );

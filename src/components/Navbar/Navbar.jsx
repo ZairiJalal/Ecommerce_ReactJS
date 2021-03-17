@@ -48,8 +48,6 @@ import logo from '../../assets/commerce.png';
 
   return (
     <>
-
-
       <AppBar position="fixed" style={classes.appBar} color="inherit">
         <Toolbar>
           <Typography component={Link} to="/" variant="h6" style={classes.title} color="inherit">

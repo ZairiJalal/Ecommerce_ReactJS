@@ -29,8 +29,8 @@ const Cart = ({ cart, onUpdateCartQty, onRemoveFromCart, onEmptyCart }) => {
   const handleEmptyCart = () => onEmptyCart();
 
   const renderEmptyCart = () => (
-    <Typography variant="subtitle1">You have no items in your shopping cart,
-      <Link style={classes.link} to="/">start adding some</Link>!
+    <Typography variant="subtitle1">Vous n'avez aucun produit dans votre chariot,
+      <Link style={classes.link} to="/"> commencer à ajouter des produits</Link>!
     </Typography>
   );
 
@@ -46,10 +46,10 @@ const Cart = ({ cart, onUpdateCartQty, onRemoveFromCart, onEmptyCart }) => {
         ))}
       </Grid>
       <div style={classes.cardDetails}>
-        <Typography variant="h4">Subtotal: {cart.subtotal.formatted_with_symbol}</Typography>
+        <Typography variant="h4">Total: {cart.subtotal.formatted_with_symbol}</Typography>
         <div>
-          <Button style={classes.emptyButton} size="large" type="button" variant="contained" color="secondary" onClick={handleEmptyCart}>Empty cart</Button>
-          <Button style={classes.checkoutButton} component={Link} to="/checkout" size="large" type="button" variant="contained" color="primary">Checkout</Button>
+          <Button style={classes.emptyButton} size="large" type="button" variant="contained" color="secondary" onClick={handleEmptyCart}>Vider le Chariot </Button>
+          <Button style={classes.checkoutButton} component={Link} to="/checkout" size="large" type="button" variant="contained" color="primary">Paiement</Button>
         </div>
       </div>
     </>
@@ -57,7 +57,7 @@ const Cart = ({ cart, onUpdateCartQty, onRemoveFromCart, onEmptyCart }) => {
 
   return (
     <Container>
-      <Typography style={classes.title} variant="h3" gutterBottom>Your Shopping Cart</Typography>
+      <Typography style={classes.title} variant="h3" gutterBottom>Votre Chariot</Typography>
       { !cart.line_items.length ? renderEmptyCart() : renderCart() }
     </Container>
   );

@@ -8,12 +8,11 @@ const Product = ({ product, onAddToCart }) => {
   
   const classes = {
     root: {
-      // maxWidth: 345, original width style
       maxWidth: '100%',
     },
     media: {
       height: 0,
-      paddingTop: '56.25%', // 16:9
+      paddingTop: '56.25%', 
     },
     cardActions: {
       display: 'flex',
